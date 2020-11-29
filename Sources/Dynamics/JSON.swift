@@ -8,7 +8,7 @@
 import Foundation
 
 @dynamicMemberLookup
-enum JSON {
+public enum JSON {
     case dictionaryValue(Dictionary<String, JSON>)
     case arrayValue(Array<JSON>)
     case numberValue(NSNumber)
@@ -69,7 +69,7 @@ enum JSON {
         }
     }
     
-    init(data: Data) throws {
+    public init(data: Data) throws {
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         self = .init(jsonObject)
     }

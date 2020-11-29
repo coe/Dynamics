@@ -8,8 +8,9 @@
 import Foundation
 
 @dynamicCallable
-struct URLQueryItemsGenerator {
-    func dynamicallyCall(withKeywordArguments pairs: KeyValuePairs<String, String?>) -> [URLQueryItem] {
+public struct URLQueryItemsGenerator {
+    public init() {}
+    public func dynamicallyCall(withKeywordArguments pairs: KeyValuePairs<String, String?>) -> [URLQueryItem] {
         pairs.map { (key, value) -> URLQueryItem in
             URLQueryItem(name: key, value: value)
         }

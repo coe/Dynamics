@@ -8,8 +8,9 @@
 import Foundation
 
 @dynamicCallable
-struct JSONDataGenerator {
-    func dynamicallyCall(withKeywordArguments pairs: KeyValuePairs<String, Any?>) -> Data? {
+public struct JSONDataGenerator {
+    public init() {}
+    public func dynamicallyCall(withKeywordArguments pairs: KeyValuePairs<String, Any?>) -> Data? {
         var dictionary:[String:Any] = [:]
         pairs.forEach { (key, value) in
             dictionary[key] = value
