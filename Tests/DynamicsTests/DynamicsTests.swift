@@ -26,6 +26,7 @@ final class DynamicsTests: XCTestCase {
         XCTAssertEqual(json.array_list?[0]?.numberValue, 12)
         XCTAssertEqual(json.object_list?.user_id?.stringValue, "A1234567")
         XCTAssertEqual(json.null_value?.nullValue, NSNull())
+        XCTAssertNil(json.undefined_value)
     }
     
     func testJsonThrow() throws {
