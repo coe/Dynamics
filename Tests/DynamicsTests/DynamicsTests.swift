@@ -1,5 +1,5 @@
 import XCTest
-@testable import Dynamics
+import Dynamics
 
 final class DynamicsTests: XCTestCase {
     private let data = """
