@@ -16,42 +16,42 @@ public enum JSON {
     case boolValue(Bool)
     case nullValue
     
-    var stringValue: String? {
+    public var stringValue: String? {
         if case .stringValue(let str) = self {
             return str
         }
         return nil
     }
     
-    var numberValue: NSNumber? {
+    public var numberValue: NSNumber? {
         if case .numberValue(let number) = self {
             return number
         }
         return nil
     }
     
-    var boolValue: Bool? {
+    public var boolValue: Bool? {
         if case .boolValue(let bool) = self {
             return bool
         }
         return nil
     }
     
-    var nullValue: NSNull? {
+    public var nullValue: NSNull? {
         if case .nullValue = self {
             return NSNull()
         }
         return nil
     }
     
-    subscript(index: Int) -> JSON? {
+    public subscript(index: Int) -> JSON? {
         if case .arrayValue(let arr) = self {
             return index < arr.count ? arr[index] : nil
         }
         return nil
     }
     
-    subscript(dynamicMember member: String) -> JSON? {
+    public subscript(dynamicMember member: String) -> JSON? {
         if case .dictionaryValue(let dict) = self {
             return dict[member]
         }
