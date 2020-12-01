@@ -9,7 +9,6 @@ Dynamics provides a dynamically generator and dynamically access.
 ### URLQueryItemsGenerator
 
 ```swift
-import UIKit
 import Dynamics
 
 var components = URLComponents()
@@ -24,7 +23,6 @@ print(components.url!) // https://httpbin.org/get?i=1&s=text&b=true
 ### JSONDataGenerator
 
 ```swift
-import UIKit
 import Dynamics
 
 var components = URLComponents()
@@ -54,7 +52,6 @@ request.httpBody = jsonDataGenerator(i:1,s:"text",b:true)
 
 ### JSON
 ```swift
-import UIKit
 import Dynamics
 
 var components = URLComponents()
