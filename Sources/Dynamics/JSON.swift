@@ -26,6 +26,8 @@ public enum JSON {
     public var numberValue: NSNumber? {
         if case .numberValue(let number) = self {
             return number
+        } else if case .boolValue(let b) = self {
+            return NSNumber(value: b)
         }
         return nil
     }

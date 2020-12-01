@@ -6,6 +6,8 @@ final class DynamicsTests: XCTestCase {
     {
         "bool_value": true,
         "string_value": "red",
+        "one_value": 1,
+        "zero_value": 0,
         "int_value": 123,
         "double_value": 3.14,
         "null_value": null,
@@ -27,6 +29,9 @@ final class DynamicsTests: XCTestCase {
         XCTAssertEqual(json.object_list?.user_id?.stringValue, "A1234567")
         XCTAssertEqual(json.null_value?.nullValue, NSNull())
         XCTAssertNil(json.undefined_value)
+        XCTAssertEqual(json.one_value?.numberValue, 1)
+        XCTAssertEqual(json.zero_value?.numberValue, 0)
+
     }
     
     func testJsonThrow() throws {
