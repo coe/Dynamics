@@ -47,8 +47,8 @@ public enum JSON {
     }
     
     public subscript(index: Int) -> JSON? {
-        if case .arrayValue(let arr) = self {
-            return index < arr.count ? arr[index] : nil
+        if case .arrayValue(let array) = self {
+            return index < array.count ? array[index] : nil
         }
         return nil
     }
