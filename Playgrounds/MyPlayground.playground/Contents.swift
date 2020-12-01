@@ -9,15 +9,9 @@ var request = URLRequest(url: components.url!)
 request.httpMethod = "POST"
 request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 let jsonDataGenerator = JSONDataGenerator()
-/*
- POST /post
- Content-Type: application/json
- Host: httpbin.org
-
- {
-   "i": 1,
-   "s": "text",
-   "b": true
- }
- */
-request.httpBody = jsonDataGenerator(i:1,s:"text",b:true)
+request.httpBody = jsonDataGenerator(i:244,s:"text",b:true)
+let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+    let json = try! JSON(data: data!)
+    print(String(describing: json.json?.i?.numberValue)) // 244
+}
+task.resume()
