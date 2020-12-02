@@ -16,6 +16,20 @@ public enum JSON {
     case boolValue(Bool)
     case nullValue
     
+    public var objectValue: Dictionary<String, JSON>? {
+        if case .dictionaryValue(let dictionary) = self {
+            return dictionary
+        }
+        return nil
+    }
+    
+    public var arrayValue: Array<JSON>? {
+        if case .arrayValue(let array) = self {
+            return array
+        }
+        return nil
+    }
+    
     public var stringValue: String? {
         if case .stringValue(let str) = self {
             return str
