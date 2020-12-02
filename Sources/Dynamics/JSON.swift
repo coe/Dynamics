@@ -16,6 +16,7 @@ public enum JSON {
     case boolValue(Bool)
     case nullValue
     
+    /// An object value. If this is not an object, this is nil.
     public var objectValue: Dictionary<String, JSON>? {
         if case .dictionaryValue(let dictionary) = self {
             return dictionary
@@ -23,6 +24,7 @@ public enum JSON {
         return nil
     }
     
+    /// Array. If this is not array, this is nil.
     public var arrayValue: Array<JSON>? {
         if case .arrayValue(let array) = self {
             return array
@@ -30,6 +32,7 @@ public enum JSON {
         return nil
     }
     
+    /// A string. If this is not a string, this is nil.
     public var stringValue: String? {
         if case .stringValue(let str) = self {
             return str
@@ -37,6 +40,7 @@ public enum JSON {
         return nil
     }
     
+    /// A number. If this is not a number, this is nil.
     public var numberValue: NSNumber? {
         if case .numberValue(let number) = self {
             return number
@@ -46,6 +50,7 @@ public enum JSON {
         return nil
     }
     
+    /// A boolean. If this is not a boolean, this is nil.
     public var boolValue: Bool? {
         if case .boolValue(let bool) = self {
             return bool
@@ -53,6 +58,7 @@ public enum JSON {
         return nil
     }
     
+    /// Null. If this is not null, this is nil.
     public var nullValue: NSNull? {
         if case .nullValue = self {
             return NSNull()
@@ -85,6 +91,9 @@ public enum JSON {
         }
     }
     
+    /// Create JSON.
+    /// - Parameter data: JSON data
+    /// - Throws: An error similar to a JSONSerialization.jsonObject(with:options:)
     public init(data: Data) throws {
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         self = .init(jsonObject)
