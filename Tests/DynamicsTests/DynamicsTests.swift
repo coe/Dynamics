@@ -69,6 +69,30 @@ final class DynamicsTests: XCTestCase {
         XCTAssertNil(jsonData)
     }
     
+    func testDictionaryGenerator() {
+        let generator = DictionaryGenerator()
+        let dictionary =  generator(int_value: 120,
+                              string_value: "string",
+                              bool_value: true,
+                              array_value: [1,"2",true],
+                              dictionary_value: ["1":1,"2":"2"],
+                              null_value: nil)
+        
+        XCTAssertEqual(dictionary["int_value"] as? Int, 120)
+        XCTAssertEqual(dictionary["string_value"] as? String, "string")
+        XCTAssertEqual(dictionary["bool_value"] as? Bool, true)
+        XCTAssertNil(dictionary["null_value"])
+        XCTAssertNil(dictionary["undefined_value"])
+        
+    }
+    
+    func testDictionaryGeneratorWithDate()  {
+        let date = Date()
+        let generator = DictionaryGenerator()
+        let dictionary =  generator(date: date)
+        XCTAssertEqual(dictionary["date"] as? Date, date)
+    }
+    
     func testURLQueryItemsGenerator()  {
         let generator = URLQueryItemsGenerator()
         let queryItems =  generator(string_value: "string",

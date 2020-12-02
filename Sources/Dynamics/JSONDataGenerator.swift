@@ -11,10 +11,8 @@ import Foundation
 public struct JSONDataGenerator {
     public init() {}
     public func dynamicallyCall(withKeywordArguments pairs: KeyValuePairs<String, Any?>) -> Data? {
-        var dictionary:[String:Any] = [:]
-        pairs.forEach { (key, value) in
-            dictionary[key] = value
-        }
+        let generator = DictionaryGenerator()
+        let dictionary = generator.dynamicallyCall(withKeywordArguments: pairs)
         guard JSONSerialization.isValidJSONObject(dictionary) else {
             return nil
         }
