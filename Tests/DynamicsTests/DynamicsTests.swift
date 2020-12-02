@@ -34,7 +34,9 @@ final class DynamicsTests: XCTestCase {
         XCTAssertEqual(json.int_value?.numberValue, 123)
         XCTAssertEqual(json.double_value?.numberValue, 3.14)
         XCTAssertEqual(json.array_list?[0]?.numberValue, 12)
+        XCTAssertEqual(json.array_list?.arrayValue?[0].numberValue, 12)
         XCTAssertEqual(json.object_list?.user_id?.stringValue, "A1234567")
+        XCTAssertEqual(json.object_list?.objectValue?["user_id"]?.stringValue, "A1234567")
         XCTAssertEqual(json.null_value?.nullValue, NSNull())
         XCTAssertNil(json.undefined_value)
     }
